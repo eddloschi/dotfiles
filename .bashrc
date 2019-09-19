@@ -19,10 +19,10 @@ exitstatus()
   fi
 }
 
-#source /usr/share/git/git-prompt.sh
+source /usr/share/git/git-prompt.sh
 
-#export PS1="\$(exitstatus)${BLUE}\u${RESET} ${YELLOW}\w${RESET}${GRAY}\$(__git_ps1 ' (%s)')${RESET} ${GREEN}\$${RESET} "
-#export PS2="${GREEN}  >${RESET} "
+export PS1="${BLUE}\u${RESET} ${YELLOW}\w${RESET}${GRAY}\$(__git_ps1 ' (%s)')${RESET} ${GREEN}\$${RESET} "
+export PS2="${GREEN}  >${RESET} "
 
 export HISTCONTROL=ignoredups
 export VISUAL="vim"
@@ -30,6 +30,7 @@ export VISUAL="vim"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias pyserver='python -m http.server'
+alias yayup='yay -Syu --combinedupgrade'
 
 source /usr/share/doc/pkgfile/command-not-found.bash
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
@@ -41,10 +42,16 @@ eval "$(pipenv --completion)"
 shopt -s autocd
 shopt -s checkwinsize
 
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/share/powerline/bindings/bash/powerline.sh
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
