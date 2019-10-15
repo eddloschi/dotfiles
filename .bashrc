@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 GREEN="\[$(tput setaf 2)\]"
-BLUE="\[$(tput setaf 4)\]"
+BLUE="\[$(tput setaf 14)\]"
 YELLOW="\[$(tput setaf 3)\]"
 GRAY="\[$(tput setaf 240)\]"
 RESET="\[$(tput sgr0)\]"
