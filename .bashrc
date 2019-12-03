@@ -31,6 +31,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias pyserver='python -m http.server'
 alias yayup='yay -Syu --combinedupgrade'
+alias exa='exa -lgh'
 
 source /usr/share/doc/pkgfile/command-not-found.bash
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
