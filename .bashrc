@@ -24,7 +24,6 @@ source /usr/share/git/git-prompt.sh
 export PS1="${BLUE}\u${RESET} ${YELLOW}\w${RESET}${GRAY}\$(__git_ps1 ' (%s)')${RESET} ${GREEN}\$${RESET} "
 export PS2="${GREEN}  >${RESET} "
 
-export HISTCONTROL=ignoredups
 export VISUAL="vim"
 
 alias ls='ls --color=auto'
@@ -40,9 +39,6 @@ fi
 
 eval "$(pipenv --completion)"
 
-shopt -s autocd
-shopt -s checkwinsize
-
 #powerline-daemon -q
 #POWERLINE_BASH_CONTINUATION=1
 #POWERLINE_BASH_SELECT=1
@@ -56,3 +52,13 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export HISTCONTROL=ignoredups
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+
+shopt -s autocd
+shopt -s checkwinsize
+shopt -s histappend
+
+PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
