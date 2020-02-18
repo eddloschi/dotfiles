@@ -48,8 +48,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 export HISTCONTROL=ignoredups
 export HISTSIZE=-1
 export HISTFILESIZE=-1
@@ -60,5 +58,7 @@ shopt -s histappend
 
 PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
 
-# Add local bin to path
-export PATH="$PATH:$HOME/.local/bin"
+# Add local bin and rbenv to path
+export PATH="$PATH:$HOME/.local/bin:$HOME/.rbenv/bin"
+
+eval "$(rbenv init -)"
