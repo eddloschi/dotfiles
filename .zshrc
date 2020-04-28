@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/eddloschi/.oh-my-zsh"
@@ -42,7 +42,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -68,7 +68,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux bundler celery colored-man-pages colorize django docker gem git node npm pip rake redis-cli ruby systemd themes zsh-autosuggestions)
+plugins=(archlinux bundler celery colored-man-pages colorize django docker git forgit fzf-tab gem node npm pip rake redis-cli ruby systemd themes zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,4 +101,31 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+if [[ $TILIX_ID ]]; then
+  source /etc/profile.d/vte.sh
+fi
+
+
+[[ ! -f /usr/share/doc/pkgfile/command-not-found.zsh ]] || source /usr/share/doc/pkgfile/command-not-found.zsh
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+### Fix slowness of pastes with zsh-syntax-highlighting.zsh
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
+### Fix slowness of pastes
+
 source /home/eddloschi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
