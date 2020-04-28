@@ -2,7 +2,7 @@
 export PATH=$PATH:$HOME/bin:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/eddloschi/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -124,7 +124,7 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 ### Fix slowness of pastes
 
-source /home/eddloschi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
 eval "$(rbenv init -)"
