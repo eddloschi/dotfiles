@@ -44,9 +44,9 @@ eval "$(pipenv --completion)"
 #POWERLINE_BASH_SELECT=1
 #. /usr/share/powerline/bindings/bash/powerline.sh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export HISTCONTROL=ignoredups
 export HISTSIZE=-1
@@ -56,9 +56,10 @@ shopt -s autocd
 shopt -s checkwinsize
 shopt -s histappend
 
-PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+#PROMPT_COMMAND="$PROMPT_COMMAND; history -a"
 
-# Add local bin and rbenv to path
-export PATH="$PATH:$HOME/.local/bin:$HOME/.rbenv/bin"
+# Add local bin to path
+export PATH="$PATH:$HOME/.local/bin:$HOME/.rbenv/bin:$HOME/.nodenv/bin"
 
 eval "$(rbenv init -)"
+eval "$(nodenv init -)"
