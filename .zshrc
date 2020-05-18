@@ -109,13 +109,13 @@ fi
 [[ ! -f /usr/share/doc/pkgfile/command-not-found.zsh ]] || source /usr/share/doc/pkgfile/command-not-found.zsh
 
 if [[ -f /usr/share/fzf/completion.zsh.zsh ]]; then
-  source/usr/share/fzf/completion.zsh.zsh
+  source /usr/share/fzf/completion.zsh.zsh
 elif [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
 if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-  source/usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/key-bindings.zsh
 elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
   source /usr/share/doc/fzf/examples/key-bindings.zsh
 fi
