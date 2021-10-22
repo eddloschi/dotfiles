@@ -86,7 +86,7 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux bundler celery colored-man-pages colorize django docker git forgit fzf-tab gem node npm pip rake redis-cli ruby systemd themes zsh-autosuggestions fast-syntax-highlighting)
+plugins=(archlinux bundler celery colored-man-pages colorize docker git forgit fzf-tab gem node npm pip rake redis-cli ruby systemd themes zsh-autosuggestions fast-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
